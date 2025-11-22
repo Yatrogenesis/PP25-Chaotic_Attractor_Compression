@@ -1,0 +1,81 @@
+cff-version: 1.2.0
+message: "If you use this software or paper, please cite it as below."
+type: software
+title: "Chaotic Attractor-Based Compression for High-Dimensional Machine Learning Embeddings"
+version: 1.0.0
+doi: 10.5281/zenodo.XXXXXX
+date-released: "2025-11-21"
+url: "https://github.com/Yatrogenesis/PP25-CHAOTIC_ATTRACTOR_COMPRESSION"
+repository-code: "https://github.com/Yatrogenesis/PP25-CHAOTIC_ATTRACTOR_COMPRESSION"
+license: MIT
+authors:
+  - family-names: "Molina Burgos"
+    given-names: "Francisco"
+    email: "pako.molina@gmail.com"
+    orcid: "https://orcid.org/0009-0008-6093-8267"
+    affiliation: "Independent Researcher"
+keywords:
+  - machine learning
+  - embedding compression
+  - chaotic attractors
+  - correlation dimension
+  - Lyapunov exponents
+  - information theory
+  - dynamical systems
+  - BERT embeddings
+abstract: >
+  High-dimensional embedding vectors (typically 768D for BERT-base) pose
+  significant storage and transmission challenges in modern machine learning
+  systems. We demonstrate that embeddings exhibiting chaotic attractor dynamics
+  enable extreme compression ratios exceeding 200×. Through rigorous analysis
+  of correlation dimension D₂ and Lyapunov exponents λ₁, we identify datasets
+  where embeddings inhabit low-dimensional manifolds (D₂ < 1) within the nominal
+  high-dimensional space. We present a novel compression algorithm based on
+  Principal Component Analysis (PCA) projection followed by delta encoding in
+  the reduced space, achieving 166-261× compression on synthetic datasets.
+references:
+  - type: article
+    authors:
+      - family-names: "Devlin"
+        given-names: "Jacob"
+      - family-names: "Chang"
+        given-names: "Ming-Wei"
+      - family-names: "Lee"
+        given-names: "Kenton"
+      - family-names: "Toutanova"
+        given-names: "Kristina"
+    title: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+    year: 2019
+    doi: "10.18653/v1/N19-1423"
+    conference:
+      name: "NAACL-HLT"
+  - type: article
+    authors:
+      - family-names: "Grassberger"
+        given-names: "Peter"
+      - family-names: "Procaccia"
+        given-names: "Itamar"
+    title: "Measuring the strangeness of strange attractors"
+    journal: "Physica D: Nonlinear Phenomena"
+    volume: 9
+    issue: "1-2"
+    year: 1983
+    start: 189
+    end: 208
+    doi: "10.1016/0167-2789(83)90298-1"
+  - type: article
+    authors:
+      - family-names: "Jégou"
+        given-names: "Hervé"
+      - family-names: "Douze"
+        given-names: "Matthijs"
+      - family-names: "Schmid"
+        given-names: "Cordelia"
+    title: "Product quantization for nearest neighbor search"
+    journal: "IEEE Transactions on Pattern Analysis and Machine Intelligence"
+    volume: 33
+    issue: 1
+    year: 2011
+    start: 117
+    end: 128
+    doi: "10.1109/TPAMI.2010.57"

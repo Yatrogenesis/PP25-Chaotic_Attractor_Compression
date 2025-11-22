@@ -1,0 +1,85 @@
+{
+  "title": "Chaotic Attractor-Based Compression for High-Dimensional Machine Learning Embeddings",
+  "description": "We demonstrate that ML embeddings exhibiting chaotic attractor dynamics enable extreme compression ratios exceeding 200×. Through rigorous analysis of correlation dimension D₂ and Lyapunov exponents λ₁, we identify datasets where embeddings inhabit low-dimensional manifolds (D₂ < 1). We present a novel PCA-based compression algorithm achieving 166-261× compression on synthetic datasets, with theoretical framework connecting dynamical systems and information theory.",
+  "version": "1.0.0",
+  "publication_date": "2025-11-21",
+  "creators": [
+    {
+      "orcid": "0009-0008-6093-8267",
+      "affiliation": "Independent Researcher",
+      "name": "Molina Burgos, Francisco"
+    }
+  ],
+  "access_right": "open",
+  "license": {
+    "id": "MIT"
+  },
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "keywords": [
+    "machine learning",
+    "embedding compression",
+    "chaotic attractors",
+    "correlation dimension",
+    "Lyapunov exponents",
+    "asymmetric numeral systems",
+    "information theory",
+    "dynamical systems",
+    "BERT embeddings",
+    "PCA compression",
+    "delta encoding",
+    "low-dimensional manifolds"
+  ],
+  "subjects": [
+    {
+      "scheme": "acm",
+      "identifier": "10010147.10010178.10010179",
+      "term": "Computing methodologies → Machine learning"
+    },
+    {
+      "scheme": "acm",
+      "identifier": "10002951.10003260.10003261.10003269",
+      "term": "Mathematics of computing → Information theory"
+    },
+    {
+      "scheme": "acm",
+      "identifier": "10010147.10010257.10010293.10010294",
+      "term": "Computing methodologies → Dimensionality reduction and manifold learning"
+    }
+  ],
+  "contributors": [],
+  "references": [
+    "Devlin, J., Chang, M. W., Lee, K., & Toutanova, K. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. NAACL-HLT 2019. doi:10.18653/v1/N19-1423",
+    "Jégou, H., Douze, M., & Schmid, C. (2011). Product quantization for nearest neighbor search. IEEE TPAMI, 33(1), 117-128. doi:10.1109/TPAMI.2010.57",
+    "Shannon, C. E. (1948). A mathematical theory of communication. Bell System Technical Journal, 27(3), 379-423. doi:10.1002/j.1538-7305.1948.tb01338.x",
+    "Grassberger, P., & Procaccia, I. (1983). Measuring the strangeness of strange attractors. Physica D, 9(1-2), 189-208. doi:10.1016/0167-2789(83)90298-1",
+    "Wolf, A., Swift, J. B., Swinney, H. L., & Vastano, J. A. (1985). Determining Lyapunov exponents from a time series. Physica D, 16(3), 285-317. doi:10.1016/0167-2789(85)90011-9",
+    "Takens, F. (1981). Detecting strange attractors in turbulence. In Dynamical Systems and Turbulence. Springer. doi:10.1007/BFb0091924",
+    "Duda, J. (2014). Asymmetric numeral systems. arXiv:1311.2540",
+    "Lorenz, E. N. (1963). Deterministic nonperiodic flow. Journal of the Atmospheric Sciences, 20(2), 130-141. doi:10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2"
+  ],
+  "related_identifiers": [
+    {
+      "scheme": "url",
+      "identifier": "https://github.com/Yatrogenesis/PP25-CHAOTIC_ATTRACTOR_COMPRESSION",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    },
+    {
+      "scheme": "url",
+      "identifier": "https://github.com/Yatrogenesis/yatrogenesis-ai",
+      "relation": "isPartOf",
+      "resource_type": "software"
+    }
+  ],
+  "grants": [],
+  "communities": [
+    {
+      "identifier": "machine-learning"
+    },
+    {
+      "identifier": "information-theory"
+    }
+  ],
+  "language": "eng"
+}

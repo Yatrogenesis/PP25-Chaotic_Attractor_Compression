@@ -1,0 +1,229 @@
+warning: unused import: `std::collections::HashMap`
+  --> src/attractor_analysis.rs:11:5
+   |
+11 | use std::collections::HashMap;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unnecessary parentheses around assigned value
+  --> src/attractor_analysis.rs:70:21
+   |
+70 |         let log_r = (min_r.ln() + (max_r.ln() - min_r.ln()) * (i as f64) / (num_radii as f64 - 1.0));
+   |                     ^                                                                              ^
+   |
+   = note: `#[warn(unused_parens)]` (part of `#[warn(unused)]`) on by default
+help: remove these parentheses
+   |
+70 -         let log_r = (min_r.ln() + (max_r.ln() - min_r.ln()) * (i as f64) / (num_radii as f64 - 1.0));
+70 +         let log_r = min_r.ln() + (max_r.ln() - min_r.ln()) * (i as f64) / (num_radii as f64 - 1.0);
+   |
+
+warning: unused variable: `dim`
+   --> src/attractor_analysis.rs:121:9
+    |
+121 |     let dim = vectors[0].len();
+    |         ^^^ help: if this is intentional, prefix it with an underscore: `_dim`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `compression-experiment` (lib) generated 3 warnings (run `cargo fix --lib -p compression-experiment` to apply 2 suggestions)
+warning: unused imports: `Array1` and `Array2`
+  --> src/main.rs:10:15
+   |
+10 | use ndarray::{Array1, Array2};
+   |               ^^^^^^  ^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `compression-experiment` (bin "compression-experiment") generated 1 warning (run `cargo fix --bin "compression-experiment"` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 0.14s
+     Running `target/release/compression-experiment`
+🔬 Experimento de Compresión de Vectores - CORREGIDO
+Autor: Francisco Molina Burgos (ORCID: 0009-0008-6093-8267)
+Fecha: 2025-11-21
+Versión: 2.0 - Con similitud consecutiva
+
+
+======================================================================
+📊 Testing: Random Similar (baseline)
+======================================================================
+
+🔑 Similitud Consecutiva: 0.9152
+   ✅ EXCELENTE - Delta Encoding DEBE funcionar bien (≥8x esperado)
+
+Testing GZIP Baseline...
+Testing Int8 Quantization...
+Testing Delta Encoding...
+Testing Zstd...
+Testing Polar Delta Encoding...
+Testing Delta + ANS...
+Testing Delta Lossless (RLE+GZIP)...
+Testing Attractor Compression (PCA+Delta)...
+
+📊 Resultados:
+  GZIP           : ratio= 1.12x, comp= 82.91ms, decomp=10.42ms, loss=0.0000%
+  Int8+GZIP      : ratio= 4.59x, comp= 16.40ms, decomp= 2.56ms, loss=1.8605%
+  Delta+GZIP     : ratio= 1.09x, comp= 82.32ms, decomp=10.53ms, loss=0.0000% ⚠️ (esperaba ≥8x)
+  Zstd           : ratio= 1.12x, comp= 10.08ms, decomp= 4.25ms, loss=0.0000%
+  PolarDelta+GZIP: ratio= 2.67x, comp= 58.24ms, decomp=13.12ms, loss=5.8646% ⚠️ (esperaba ≥8x)
+  Delta+ANS      : ratio= 4.97x, comp= 22.78ms, decomp= 4.25ms, loss=32.8882% ⚠️ (esperaba ≥8x)
+  Delta+RLE+GZIP : ratio= 0.97x, comp=1308.47ms, decomp=20.32ms, loss=0.0001% ⚠️ (esperaba ≥8x)
+  Attractor(PCA-10): ratio=166.88x, comp=  4.38ms, decomp= 0.28ms, loss=167.9039%
+
+🔬 Validación de Hipótesis:
+   ❌ Delta Cartesiano: solo 1.09x (esperaba ≥8x) con similitud 0.9152
+   ⚠️  Polar Delta: 2.67x (esperaba ≥8x) con similitud 0.9152
+
+======================================================================
+📊 Testing: Conversational Drift ⭐ (drift 5%)
+======================================================================
+
+🔑 Similitud Consecutiva: 0.9636
+   ✅ EXCELENTE - Delta Encoding DEBE funcionar bien (≥8x esperado)
+
+Testing GZIP Baseline...
+Testing Int8 Quantization...
+Testing Delta Encoding...
+Testing Zstd...
+Testing Polar Delta Encoding...
+Testing Delta + ANS...
+Testing Delta Lossless (RLE+GZIP)...
+Testing Attractor Compression (PCA+Delta)...
+
+📊 Resultados:
+  GZIP           : ratio= 1.14x, comp= 87.36ms, decomp=10.91ms, loss=0.0000%
+  Int8+GZIP      : ratio=10.79x, comp= 71.69ms, decomp= 3.08ms, loss=24.3465%
+  Delta+GZIP     : ratio= 1.10x, comp= 97.71ms, decomp=12.23ms, loss=0.0000% ⚠️ (esperaba ≥8x)
+  Zstd           : ratio= 1.14x, comp= 14.04ms, decomp= 5.85ms, loss=0.0000%
+  PolarDelta+GZIP: ratio= 2.64x, comp= 51.28ms, decomp=12.44ms, loss=1.4350% ⚠️ (esperaba ≥8x)
+  Delta+ANS      : ratio= 4.30x, comp= 18.46ms, decomp= 3.68ms, loss=5.2132% ⚠️ (esperaba ≥8x)
+  Delta+RLE+GZIP : ratio= 0.97x, comp=1341.71ms, decomp=19.40ms, loss=0.0000% ⚠️ (esperaba ≥8x)
+  Attractor(PCA-10): ratio=243.10x, comp=  3.90ms, decomp= 0.46ms, loss=31.5901%
+
+🔬 Validación de Hipótesis:
+   ❌ Delta Cartesiano: solo 1.10x (esperaba ≥8x) con similitud 0.9636
+   ⚠️  Polar Delta: 2.64x (esperaba ≥8x) con similitud 0.9636
+
+======================================================================
+📊 Testing: Temporal Smoothing (alpha 0.9)
+======================================================================
+
+🔑 Similitud Consecutiva: 0.9186
+   ✅ EXCELENTE - Delta Encoding DEBE funcionar bien (≥8x esperado)
+
+Testing GZIP Baseline...
+Testing Int8 Quantization...
+Testing Delta Encoding...
+Testing Zstd...
+Testing Polar Delta Encoding...
+Testing Delta + ANS...
+Testing Delta Lossless (RLE+GZIP)...
+Testing Attractor Compression (PCA+Delta)...
+
+📊 Resultados:
+  GZIP           : ratio= 1.13x, comp= 88.22ms, decomp=11.58ms, loss=0.0000%
+  Int8+GZIP      : ratio= 9.96x, comp= 69.88ms, decomp= 3.25ms, loss=24.1087%
+  Delta+GZIP     : ratio= 1.10x, comp= 83.04ms, decomp=10.40ms, loss=0.0000% ⚠️ (esperaba ≥8x)
+  Zstd           : ratio= 1.13x, comp= 10.86ms, decomp= 4.12ms, loss=0.0000%
+  PolarDelta+GZIP: ratio= 2.56x, comp= 51.01ms, decomp=12.03ms, loss=1.6262% ⚠️ (esperaba ≥8x)
+  Delta+ANS      : ratio= 4.23x, comp= 18.03ms, decomp= 3.87ms, loss=8.3364% ⚠️ (esperaba ≥8x)
+  Delta+RLE+GZIP : ratio= 0.96x, comp=1344.29ms, decomp=20.11ms, loss=0.0000% ⚠️ (esperaba ≥8x)
+  Attractor(PCA-10): ratio=225.80x, comp=  4.00ms, decomp= 0.40ms, loss=47.3145%
+
+🔬 Validación de Hipótesis:
+   ❌ Delta Cartesiano: solo 1.10x (esperaba ≥8x) con similitud 0.9186
+   ⚠️  Polar Delta: 2.56x (esperaba ≥8x) con similitud 0.9186
+
+======================================================================
+📊 Testing: Clustered Topics (100 per cluster)
+======================================================================
+
+🔑 Similitud Consecutiva: 0.9819
+   ✅ EXCELENTE - Delta Encoding DEBE funcionar bien (≥8x esperado)
+
+Testing GZIP Baseline...
+Testing Int8 Quantization...
+Testing Delta Encoding...
+Testing Zstd...
+Testing Polar Delta Encoding...
+Testing Delta + ANS...
+Testing Delta Lossless (RLE+GZIP)...
+Testing Attractor Compression (PCA+Delta)...
+
+📊 Resultados:
+  GZIP           : ratio= 1.13x, comp= 86.33ms, decomp=10.63ms, loss=0.0000%
+  Int8+GZIP      : ratio= 9.85x, comp= 62.84ms, decomp= 3.16ms, loss=18.5432%
+  Delta+GZIP     : ratio= 1.10x, comp= 88.96ms, decomp=11.13ms, loss=0.0000% ⚠️ (esperaba ≥8x)
+  Zstd           : ratio= 1.13x, comp= 10.92ms, decomp= 4.21ms, loss=0.0000%
+  PolarDelta+GZIP: ratio= 2.74x, comp= 55.10ms, decomp=11.96ms, loss=1.9744% ⚠️ (esperaba ≥8x)
+  Delta+ANS      : ratio= 5.35x, comp= 20.44ms, decomp= 4.55ms, loss=14.5127% ⚠️ (esperaba ≥8x)
+  Delta+RLE+GZIP : ratio= 0.98x, comp=1337.56ms, decomp=19.19ms, loss=0.0000% ⚠️ (esperaba ≥8x)
+  Attractor(PCA-10): ratio=262.36x, comp=  3.94ms, decomp= 0.22ms, loss=70.0604%
+
+🔬 Validación de Hipótesis:
+   ❌ Delta Cartesiano: solo 1.10x (esperaba ≥8x) con similitud 0.9819
+   ⚠️  Polar Delta: 2.74x (esperaba ≥8x) con similitud 0.9819
+
+
+==========================================================================================
+📊 TABLA COMPARATIVA FINAL
+==========================================================================================
+
+Dataset                          Consec.Sim         GZIP    Int8+GZIP   Delta+GZIP         Zstd      PolarDelta    Delta+ANS
+---------------------------------------------------------------------------------------------------------------------
+Random Similar (baseline)           0.9152         1.12x        4.59x        1.09x        1.12x        2.67x        4.97x        0.97x      166.88x
+Conversational Drift ⭐ (drift 5%)      0.9636         1.14x       10.79x        1.10x        1.14x        2.64x        4.30x        0.97x      243.10x
+Temporal Smoothing (alpha 0.9)      0.9186         1.13x        9.96x        1.10x        1.13x        2.56x        4.23x        0.96x      225.80x
+Clustered Topics (100 per cluster)      0.9819         1.13x        9.85x        1.10x        1.13x        2.74x        5.35x        0.98x      262.36x
+
+==========================================================================================
+📊 Pérdida de Accuracy por Dataset
+==========================================================================================
+
+Dataset                                GZIP    Int8+GZIP   Delta+GZIP         Zstd      PolarDelta    Delta+ANS
+---------------------------------------------------------------------------------------------------------
+Random Similar (baseline)           0.0000%      1.8605%      0.0000%      0.0000%      5.8646%     32.8882%      0.0001%    167.9039%
+Conversational Drift ⭐ (drift 5%)      0.0000%     24.3465%      0.0000%      0.0000%      1.4350%      5.2132%      0.0000%     31.5901%
+Temporal Smoothing (alpha 0.9)      0.0000%     24.1087%      0.0000%      0.0000%      1.6262%      8.3364%      0.0000%     47.3145%
+Clustered Topics (100 per cluster)      0.0000%     18.5432%      0.0000%      0.0000%      1.9744%     14.5127%      0.0000%     70.0604%
+
+==========================================================================================
+🏆 VALIDACIÓN DE HIPÓTESIS Y CONCLUSIONES
+==========================================================================================
+
+
+Random Similar (baseline)
+  Similitud Consecutiva: 0.9152
+  Delta+GZIP: 1.09x
+  ❌ HIPÓTESIS REFUTADA: Delta <8x con alta similitud (esperaba ≥8x)
+  🎯 Mejor método: Attractor(PCA-10) (166.88x, 167.9039% loss)
+
+Conversational Drift ⭐ (drift 5%)
+  Similitud Consecutiva: 0.9636
+  Delta+GZIP: 1.10x
+  ❌ HIPÓTESIS REFUTADA: Delta <8x con alta similitud (esperaba ≥8x)
+  🎯 Mejor método: Attractor(PCA-10) (243.10x, 31.5901% loss)
+
+Temporal Smoothing (alpha 0.9)
+  Similitud Consecutiva: 0.9186
+  Delta+GZIP: 1.10x
+  ❌ HIPÓTESIS REFUTADA: Delta <8x con alta similitud (esperaba ≥8x)
+  🎯 Mejor método: Attractor(PCA-10) (225.80x, 47.3145% loss)
+
+Clustered Topics (100 per cluster)
+  Similitud Consecutiva: 0.9819
+  Delta+GZIP: 1.10x
+  ❌ HIPÓTESIS REFUTADA: Delta <8x con alta similitud (esperaba ≥8x)
+  🎯 Mejor método: Attractor(PCA-10) (262.36x, 70.0604% loss)
+
+==========================================================================================
+📝 RESUMEN FINAL
+==========================================================================================
+
+Datasets con similitud consecutiva ≥0.90 donde Delta validó (≥8x): 0
+Datasets con similitud consecutiva ≥0.90 donde Delta falló (<8x): 4
+
+❌ CONCLUSIÓN: Implementación actual de Delta Encoding NO funciona como esperado.
+   Revisar algoritmo o considerar alternativas (PCA+Delta, etc.).
+
