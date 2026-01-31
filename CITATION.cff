@@ -4,16 +4,15 @@ type: software
 title: "Chaotic Attractor-Based Compression for High-Dimensional Machine Learning Embeddings"
 version: 1.0.0
 doi: 10.5281/zenodo.17932389
-date-released: "2025-11-21"
-url: "https://github.com/Yatrogenesis/PP25-CHAOTIC_ATTRACTOR_COMPRESSION"
-repository-code: "https://github.com/Yatrogenesis/PP25-CHAOTIC_ATTRACTOR_COMPRESSION"
-license: MIT
+date-released: "2026-01-30"
+url: "https://github.com/Yatrogenesis/Chaotic-Attractor-Compression"
+repository-code: "https://github.com/Yatrogenesis/Chaotic-Attractor-Compression"
+license: CC-BY-4.0
 authors:
-  - family-names: "Molina Burgos"
+  - family-names: "Molina-Burgos"
     given-names: "Francisco"
-    email: "pako.molina@gmail.com"
-    orcid: "https://orcid.org/0009-0008-6093-8267"
-    affiliation: "Independent Researcher"
+    email: "fmolina@avermex.com"
+    affiliation: "Avermex Research Division"
 keywords:
   - machine learning
   - embedding compression
@@ -27,12 +26,11 @@ abstract: >
   High-dimensional embedding vectors (typically 768D for BERT-base) pose
   significant storage and transmission challenges in modern machine learning
   systems. We demonstrate that embeddings exhibiting chaotic attractor dynamics
-  enable extreme compression ratios exceeding 200×. Through rigorous analysis
-  of correlation dimension D₂ and Lyapunov exponents λ₁, we identify datasets
-  where embeddings inhabit low-dimensional manifolds (D₂ < 1) within the nominal
-  high-dimensional space. We present a novel compression algorithm based on
-  Principal Component Analysis (PCA) projection followed by delta encoding in
-  the reduced space, achieving 166-261× compression on synthetic datasets.
+  enable extreme compression ratios exceeding 200x. Through rigorous analysis
+  of correlation dimension D2 and Lyapunov exponents, we identify datasets
+  where embeddings inhabit low-dimensional manifolds (D2 < 1) within the nominal
+  high-dimensional space. Our PCA + differential encoding achieves 166-178x
+  compression on real BERT embeddings from Wikipedia and CC-News corpora.
 references:
   - type: article
     authors:
@@ -65,8 +63,8 @@ references:
     doi: "10.1016/0167-2789(83)90298-1"
   - type: article
     authors:
-      - family-names: "Jégou"
-        given-names: "Hervé"
+      - family-names: "Jegou"
+        given-names: "Herve"
       - family-names: "Douze"
         given-names: "Matthijs"
       - family-names: "Schmid"

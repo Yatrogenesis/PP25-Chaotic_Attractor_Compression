@@ -1,18 +1,17 @@
 {
   "title": "Chaotic Attractor-Based Compression for High-Dimensional Machine Learning Embeddings",
-  "description": "We demonstrate that ML embeddings exhibiting chaotic attractor dynamics enable extreme compression ratios exceeding 200×. Through rigorous analysis of correlation dimension D₂ and Lyapunov exponents λ₁, we identify datasets where embeddings inhabit low-dimensional manifolds (D₂ < 1). We present a novel PCA-based compression algorithm achieving 166-261× compression on synthetic datasets, with theoretical framework connecting dynamical systems and information theory.",
-  "version": "1.0.0",
-  "publication_date": "2025-11-21",
+  "description": "We demonstrate that ML embeddings exhibiting chaotic attractor dynamics enable extreme compression ratios exceeding 200×. Through rigorous analysis of correlation dimension D₂ and Lyapunov exponents λ₁, we identify datasets where embeddings inhabit low-dimensional manifolds (D₂ < 1). Our PCA-based compression algorithm achieves 166-178× compression on real BERT embeddings from Wikipedia and CC-News corpora.",
+  "version": "1.1.0",
+  "publication_date": "2026-01-30",
   "creators": [
     {
-      "orcid": "0009-0008-6093-8267",
-      "affiliation": "Independent Researcher",
-      "name": "Molina Burgos, Francisco"
+      "affiliation": "Avermex Research Division",
+      "name": "Molina-Burgos, Francisco"
     }
   ],
   "access_right": "open",
   "license": {
-    "id": "MIT"
+    "id": "CC-BY-4.0"
   },
   "upload_type": "publication",
   "publication_type": "preprint",
@@ -61,14 +60,8 @@
   "related_identifiers": [
     {
       "scheme": "url",
-      "identifier": "https://github.com/Yatrogenesis/PP25-CHAOTIC_ATTRACTOR_COMPRESSION",
+      "identifier": "https://github.com/Yatrogenesis/Chaotic-Attractor-Compression",
       "relation": "isSupplementTo",
-      "resource_type": "software"
-    },
-    {
-      "scheme": "url",
-      "identifier": "https://github.com/Yatrogenesis/yatrogenesis-ai",
-      "relation": "isPartOf",
       "resource_type": "software"
     }
   ],
